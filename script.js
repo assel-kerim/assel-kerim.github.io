@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const movieList = document.getElementById('movieList');
     const promptText = document.querySelector('.container h1');
     const cuteImage = document.querySelector('.cute-image');
+    const showImageButton = document.getElementById('showImageButton'); // Add this line
+
+
+    function goToIloveyouPage() {
+        window.location.href = 'iloveyou.html';
+    }
 
     yesBtn.addEventListener('click', function() {
         // Hide the 'Yes' and 'No' buttons
@@ -54,4 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 6000); // Increase the duration to keep snowflakes continuously visible
         }
     }
+
+    const iloveyouButton = document.getElementById('iloveyouBtn');
+    iloveyouButton.addEventListener('click', goToIloveyouPage);
+
+    showImageButton.addEventListener('click', function() {
+        console.log('Button clicked');
+        // Show the hidden image when the "Show Image" button is clicked
+        const hiddenImage = document.getElementById('hiddenImage');
+        hiddenImage.style.display = 'block';
+    });
 });
