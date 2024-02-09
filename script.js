@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     yesBtn.addEventListener('click', function() {
+        iloveyouButton.style.display = 'none';
+
         // Hide the 'Yes' and 'No' buttons
         yesBtn.style.display = 'none';
         noBtn.style.display = 'none';

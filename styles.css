@@ -13,6 +13,7 @@ body {
     text-align: center;
     background-color: #ffc0cb; /* Pink background color */
     padding: 20px;
+    padding-top: 150px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -158,9 +159,10 @@ button {
 #iloveyoulist {
     list-style: none;
     padding: 0;
-    /*display: flex; /* Use flexbox for the container 
-    flex-wrap: wrap; /* Allow items to wrap to the next line 
-    justify-content: space-around;*/
+}
+
+#iloveyouBtn {
+    z-index: -1;
 }
 
 .phrase-item {
@@ -177,7 +179,9 @@ button {
 }
 
 .phrase-item:hover {
-    transform: scale(1.05); /* Add a subtle scale effect on hover */
+    transform: scale(1.25); /* Add a subtle scale effect on hover */
+    color: #e83e8c;
+    background-color: white;
 }
 
 .phrase-item p {
