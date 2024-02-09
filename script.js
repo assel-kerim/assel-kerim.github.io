@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function goToIloveyouPage() {
-        window.location.href = 'iloveyou.html';
+        window.location.href = 'pressme.html';
     }
 
     yesBtn.addEventListener('click', function() {
