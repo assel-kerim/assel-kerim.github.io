@@ -13,7 +13,19 @@ body {
     text-align: center;
     background-color: #ffc0cb; /* Pink background color */
     padding: 20px;
-    padding-top: 150px;
+    border-radius: 10px;
+    padding-top: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.iloveyouContainer {
+    text-align: center;
+    background-color: #ffc0cb; /* Pink background color */
+    padding: 20px;
+    padding-top: 140px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -163,6 +175,8 @@ button {
 
 #iloveyouBtn {
     z-index: -1;
+    font-size: 12px; /* Adjust the font size as needed */
+    padding: 10px 20px;
 }
 
 .phrase-item {
