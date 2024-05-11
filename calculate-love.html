@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            margin: 0;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            color: #333;
+            font-size: 22px;
+        }
+        button {
+            background-color: #d93f7e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #c5316e;
+        }
+        .hidden {
+            display: none;
+        }
+        .love-meter {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #loveScore {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="love-meter">
+            <h2>Check Your Love Score</h2>
+            <input type="text" id="yourName" placeholder="His name">
+            <input type="text" id="partnerName" placeholder="Your Name">
+            <button onclick="calculateLove()">Calculate</button>
+            <div id="loveScore" class="hidden"></div>
+        </div>
+    </div>
+
+    <script>
+        // Random background images
+        var backgroundImages = [
+            'images/background1.jpg',
+            'images/background2.jpg',
+            'images/background3.jpg',
+            'images/background4.jpg',
+            // Add more image URLs as needed
+        ];
+
+        var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        var randomBackground = backgroundImages[randomIndex];
+        document.body.style.backgroundImage = 'url("' + randomBackground + '")';
+
+        function validateForm() {
+            var yourName = document.getElementById('yourName').value.trim();
+            var partnerName = document.getElementById('partnerName').value.trim();
+
+            if (yourName === "" || partnerName === "") {
+                alert("Please enter both your name and your partner's name.");
+                return false;
+            }
+            return true;
+        }
+
+        function calculateLove() {
+            if (!validateForm()) return;
+
+            var yourName = document.getElementById('yourName').value.toLowerCase();
+            var partnerName = document.getElementById('partnerName').value.toLowerCase();
+
+            // Normalize names
+            yourName = yourName.trim();
+            partnerName = partnerName.trim();
+
+            // Define perfect matches (using lowercase)
+            var perfectMatches = [
+                { name1: "nurdos", name2: "assel" },
+                { name1: "нурдос", name2: "асель" },
+                { name1: "нурдос", name2: "әсел" },
+                { name1: "нурдос", name2: "асел" },
+                { name1: "nurdos", name2: "asel" },
+                { name1: "нұрдос", name2: "әсел" },
+                { name1: "нұрдос", name2: "асел" },
+                { name1: "нурдос", name2: "асель" },
+                { name1: "nurdos", name2: "әсель" },
+                { name1: "нурдос", name2: "әсель" },
+                { name1: "нурдос", name2: "әсель" },
+                { name1: "нурдос", name2: "әсель" },
+                { name1: "nurdos", name2: "әсель" },
+                { name1: "нұрдос", name2: "әсель" },
+                { name1: "нұрдос", name2: "әсель" },
+                { name1: "нурдос", name2: "әсель" },
+                // Add more combinations as needed
+            ];
+
+            // Check if the entered combination matches any perfect match
+            var isPerfectMatch = perfectMatches.some(function(match) {
+                return (yourName === match.name1 && partnerName === match.name2) ||
+                    (yourName === match.name2 && partnerName === match.name1);
+            });
+
+            // If it's a perfect match, set love score to 100%
+            var loveScore = isPerfectMatch ? 100 : Math.floor(Math.random() * 101) / 2;
+
+            var loveMessage = yourName + ' and ' + partnerName + "'s love score is " + loveScore + "%!";
+            document.getElementById('loveScore').innerText = loveMessage;
+            document.getElementById('loveScore').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

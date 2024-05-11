@@ -11,6 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'pressme.html';
     }
 
+    function goToIloveyouPage2() {
+        window.location.href = 'pressme2.html';
+    }
+
+    function importantDatesFunc() {
+        window.location.href = 'important-dates.html';
+    }
+
+    function calculateLoveFunc() {
+        window.location.href = 'calculate-love.html';
+    }
+
     yesBtn.addEventListener('click', function() {
         iloveyouButton.style.display = 'none';
 
@@ -65,6 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const iloveyouButton = document.getElementById('iloveyouBtn');
     iloveyouButton.addEventListener('click', goToIloveyouPage);
+
+    const iloveyouButton2 = document.getElementById('iloveyouBtn2');
+    iloveyouButton2.addEventListener('click', goToIloveyouPage2);
+
+    const importantDates = document.getElementById('importantDatesButton');
+    importantDates.addEventListener('click', importantDatesFunc);
+
+    const calculateLove = document.getElementById('calculateLove');
+    calculateLove.addEventListener('click', calculateLoveFunc);
 
     showImageButton.addEventListener('click', function() {
         console.log('Button clicked');
