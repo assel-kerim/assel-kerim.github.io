@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            margin: 0;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            color: #ffffff;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        .important-dates {
+            background: linear-gradient(135deg, #ff6b6b 0%, #fca1a1 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .important-dates h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .important-dates p {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .anniversary-date {
+                margin-top: 20px;
+            }
+        }
+        /* Styling for date boxes */
+        /* Styling for date boxes */
+        .date-box,
+        .birthday-box {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .date-box .info,
+        .birthday-box .info {
+            flex: 1;
+        }
+
+        .date-box .icon,
+        .birthday-box .icon {
+            flex: 0 0 auto;
+            margin-right: 15px;
+        }
+
+        /* Styling for icons */
+        .icon i {
+            color: #333;
+            font-size: 24px;
+        }
+
+        /* Styling for specific elements */
+        #daysSinceMet,
+        #daysUntilNextAnniversary,
+        #daysSinceHisBirthday,
+        #daysSinceHerBirthday {
+            font-weight: bold;
+            color: #ff6b6b; /* Red color for emphasis */
+        }
+
+        /* Highlighting the word "days" */
+        .info p {
+            position: relative;
+        }
+
+        .info p::after {
+            content: " days";
+            color: #ff6b6b; /* Red color for emphasis */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Important Dates block -->
+        <div class="important-dates">
+            <h2>Important Dates</h2>
+            <div class="date-box">
+                <div class="icon">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                <div class="info">
+                    <p id="daysSinceMet"></p>
+                </div>
+            </div>
+            <div class="date-box">
+                <div class="icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="info">
+                    <p id="daysUntilNextAnniversary"></p>
+                </div>
+            </div>
+            <div class="birthday-box">
+                <div class="icon">
+                    <i class="fas fa-cake"></i>
+                </div>
+                <div class="info">
+                    <p id="daysSinceHisBirthday"></p>
+                </div>
+            </div>
+            <div class="birthday-box">
+                <div class="icon">
+                    <i class="fas fa-cake"></i>
+                </div>
+                <div class="info">
+                    <p id="daysSinceHerBirthday"></p>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <script>
+        // Random background images
+        var backgroundImages = [
+            'images/background1.jpg',
+            'images/background2.jpg',
+            'images/background3.jpg',
+            'images/background4.jpg',
+            // Add more image URLs as needed
+        ];
+
+        var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        var randomBackground = backgroundImages[randomIndex];
+        document.body.style.backgroundImage = 'url("' + randomBackground + '")';
+
+        // Set the date when you met and marriage date (YYYY-MM-DD format)
+        var dateWhenMet = new Date('2023-10-17'); // Change this to the date you met
+        var marriageDateUs = new Date('2024-8-4'); // Change this to your marriage date
+        var hisbirthday = new Date('2002-11-8'); // Change this to your marriage date
+        var herbirthday = new Date('2003-3-26'); // Change this to your marriage date
+
+
+        // Function to calculate the number of days since the date when you met
+        function calculateDaysSinceMet() {
+            var now = new Date();
+            var daysSinceMet = Math.floor((now - dateWhenMet) / (1000 * 60 * 60 * 24));
+            return daysSinceMet;
+        }
+
+        // Function to calculate the number of days until the next anniversary of marriage
+        function calculateDaysUntilNextAnniversary(marriageDate) {
+            var now = new Date();
+            var anniversaryYear = now.getFullYear() - marriageDate.getFullYear();
+            var nextAnniversaryDate = new Date(marriageDate.getFullYear() + anniversaryYear, marriageDate.getMonth(), marriageDate.getDate());
+            if (now < nextAnniversaryDate) {
+                var timeDifference = nextAnniversaryDate.getTime() - now.getTime();
+                var daysUntilNextAnniversary = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                return daysUntilNextAnniversary;
+            } else {
+                var nextAnniversaryYear = anniversaryYear + 1;
+                var nextAnniversaryDate = new Date(marriageDate.getFullYear() + nextAnniversaryYear, marriageDate.getMonth(), marriageDate.getDate());
+                var timeDifference = nextAnniversaryDate.getTime() - now.getTime();
+                var daysUntilNextAnniversary = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                return daysUntilNextAnniversary;
+            }
+        }
+
+        // Function to calculate the upcoming anniversary
+        function calculateUpcomingAnniversary(marriageDate) {
+            var now = new Date();
+            var anniversaryYear = now.getFullYear() - marriageDate.getFullYear();
+            var nextAnniversaryDate = new Date(marriageDate.getFullYear() + anniversaryYear, marriageDate.getMonth(), marriageDate.getDate());
+            if (now < nextAnniversaryDate) {
+                return anniversaryYear;
+            } else {
+                return anniversaryYear + 1;
+            }
+        }
+
+        // Function to display the number of days since we met, days until the next anniversary, and the upcoming anniversary
+        function displayDates() {
+            var daysSinceMet = calculateDaysSinceMet();
+            var daysUntilNextAnniversary = calculateDaysUntilNextAnniversary(marriageDateUs);
+            var upcomingAnniversary = calculateUpcomingAnniversary(marriageDateUs);
+
+            var daysSinceHisBirthday = calculateDaysUntilNextAnniversary(hisbirthday)
+            var upcomingHisBirthday = calculateUpcomingAnniversary(hisbirthday)
+
+            var daysSinceHerBirthday = calculateDaysUntilNextAnniversary(herbirthday)
+            var upcomingHerBirthday = calculateUpcomingAnniversary(herbirthday)
+
+
+            var daysSinceMetMessage = "Days since we've met: " + daysSinceMet + " days";
+            var daysUntilNextAnniversaryMessage = "Days until the " + upcomingAnniversary + "th anniversary: " + daysUntilNextAnniversary + " days";
+            var daysSinceHisBirthdayMessage = "Days until he turns " + upcomingHisBirthday + ": " + daysSinceHisBirthday;
+            var daysSinceHerBirthdayMessage = "Days until she turns " + upcomingHerBirthday + ": " + daysSinceHerBirthday;
+
+            document.getElementById('daysSinceMet').innerText = daysSinceMetMessage;
+            document.getElementById('daysUntilNextAnniversary').innerText = daysUntilNextAnniversaryMessage;
+            document.getElementById('daysSinceHisBirthday').innerText = daysSinceHisBirthdayMessage;
+            document.getElementById('daysSinceHerBirthday').innerText = daysSinceHerBirthdayMessage;
+        }
+
+        // Automatically display the number of days since we met, days until the next anniversary, and the upcoming anniversary when the page loads
+        displayDates();
+    </script>
+</body>
+</html>

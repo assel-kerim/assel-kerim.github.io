@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            margin: 0;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            color: #d93f7e;
+        }
+        h2 {
+            color: #333;
+            font-size: 22px;
+        }
+        p {
+            color: #333;
+            line-height: 1.6;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #d93f7e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #c5316e;
+        }
+        .hidden {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 20px;
+            }
+            img {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Love,</h1>
+        <h2>You Mean Everything to Me</h2>
+        <p>You are the most amazing person I've ever met. With you, every moment feels like a blessing.</p>
+        <img src="images/your_love_image.jpg" alt="Image of Your Love" width="15%">
+        <p>I cherish every smile, every laugh, and every memory we share together.</p>
+        <p>Thank you for being my rock, my confidant, and my everything.</p>
+        <button onclick="showMessage()">Forever Yours</button>
+        <p id="loveMessage" class="hidden">I love you more than words can express.</p>
+    </div>
+
+    <script>
+        function showMessage() {
+            var loveMessage = document.getElementById('loveMessage');
+            loveMessage.classList.remove('hidden');
+            setTimeout(function() {
+                loveMessage.classList.add('hidden');
+            }, 3000); // Hide message after 3 seconds (3000 milliseconds)
+        }
+
+        // Random background images
+        var backgroundImages = [
+            'images/background1.jpg',
+            'images/background2.jpg',
+            'images/background3.jpg',
+            'images/background4.jpg',
+            // Add more image URLs as needed
+        ];
+
+        var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        var randomBackground = backgroundImages[randomIndex];
+        document.body.style.backgroundImage = 'url("' + randomBackground + '")';
+    </script>
+</body>
+</html>

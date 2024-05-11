@@ -179,6 +179,27 @@ button {
     padding: 10px 20px;
 }
 
+#iloveyouBtn2 {
+    z-index: -1;
+    font-size: 12px; /* Adjust the font size as needed */
+    padding: 10px 20px;
+}
+
+#calculateLove {
+    z-index: -1;
+    font-size: 12px; /* Adjust the font size as needed */
+    padding: 10px 20px;
+}
+
+#importantDatesButton {
+    z-index: -1;
+    font-size: 12px; /* Adjust the font size as needed */
+    padding: 10px 20px;
+    background-color: hwb(326 6% 6%);
+    color: white;
+}
+
+
 .phrase-item {
     background-color: #e83e8c; /* Pink background color */
     color: #e83e8c;
